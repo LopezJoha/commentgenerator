@@ -1,38 +1,324 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 100%;  
+  font-family: 'Fredoka', sans-serif;
+  
+}
+htnl{
+  scroll-behavior: smooth;
+}
+
+h2{
+  font-size: 225%;
+  margin: 0;
+}
+
+
+:root{
+  --color1: #51285F;
+  --color2: #d2a6b9;
+  --color3: #5de4f5;
+  --color4: #a068d5;
+  --color5: #9f6983;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
+  text-align: center;  
+  background-color: white;
+}
+
+.App-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{  
+  position: absolute;  
+   
+}
+
+.border{
+  color: black;
+  text-shadow:2px 2px 0 white,
+              -2px 2px 0 white, 
+              2px -2px 0 white, 
+              -2px -2px 0 white;
+}
+
+.wave{
+  color: var(--color5);
+  animation: waveMovement 3s ease-in-out infinite; 
+}
+
+@keyframes waveMovement{
+  0%, 100% {
+    clip-path: polygon(0% 47%, 10% 48%, 33% 54%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+  }
+}
+
+.main{
+  width: 100%;
+  height: 100%;
+}
+
+.cardLevel{
+  height: 100%;
+  position: relative;
+  font-weight: bolder;
+ 
+}
+
+.cardLevel h2{
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.p-main{
+  padding-top: 3%;  
+}
+
+.levelsList{
+  position: relative;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  list-style: none;  
+  min-width: 70vw;   
+}
+
+.level{
+  position: relative;
+  padding: 2%;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  margin: 5%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: var(--color2) 0px 4px 12px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.level img{
+  margin: 10px;
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+  padding-top: 10%;
+}
+
+.level:hover, .performance:hover{
+  box-shadow: var(--color3) 0px 4px 12px;
+}
+
+.level.active{
+ 
+  box-shadow: var(--color3) 0px 8px 24px;
+}
+
+.classNumber-Container{
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.classNumber{
+  width: 50px;
+  height: 50px;
+  box-shadow: var(--color2) 1px 4px 12px;
+  border-radius: 5px;
+  background-color: var(--color2);
+  color: var(--color1);
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;  
+}
+
+.classNumber:hover, .classNumber.active{
+  background-color: var(--color3);
+}
+
+
+.performanceContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.performance{
+  box-shadow: var(--color2) 0px 4px 12px;
+  min-width: 300px;
+  margin: 15px;
+  padding: 2%;
+  cursor: pointer;  
+  border-radius: 5px;
+}
+
+.performance.active{
+  background-color: var(--color3);
+  box-shadow: var(--color3) 0px 4px 12px;
+  color: var(--color1);
+}
+
+.commentList{
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;  
+}
+
+.commentContainer{
+  margin: 1%;
+  padding:1%;
+  box-shadow: var(--color2) 0px 4px 12px;  
+  border-radius: 5px;
+}
+
+.commentContainer h4{
+  padding: 2%;
+}
+
+.commentWrapper{
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  cursor:pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 2%;
+}
+
+.comment{
+  max-width: 90%;
+  text-align: left;
+}
+
+.popup{
+  animation: 3s infinite movingToLeft linear;
+  z-index: 10;
+}
+
+@keyframes movingToLeft {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.wave-container img{
+  position: absolute;
+  background-color: var(--color5);  
+  width: 100%;
+  top:0;
+  right: 0;
+  left: 0;   
+}
+
+.info{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  text-align: justify;
+}
+
+
+.infoList{
+  padding-left: 3%;
+}
+
+.close{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.question-mark {
+  position: fixed;
+  top: 0;  
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.question-mark:hover{
+  -webkit-transform: scale(.5);
+  transform: scale(1.2);
+}
+
+.modal_mainText {
+  font-size: large;
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.modal_mainSub{
+  text-align: justify;
+  
+}
+
+.modal_title{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.info_text, .infoList{
+  margin: 3%;
+  text-align: justify;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 220px) {
+ .cardLevel h2{
+  display: none;
+ }
+}
+
+@media screen and (max-width: 500px) {
+  html, .commentList{
+    font-size: 16px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  h2{
+    font-size: 120%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .classNumber{
+    width: 30px;
+    height: 30px;
+  }
+  .question-mark{
+    width: 30px;
+    height: 30px;
+  }
+  .levelsList{
+    max-width: 90vw;
   }
 }
